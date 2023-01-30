@@ -17,7 +17,10 @@ namespace QueryFilterEFCore.Controllers
         [HttpGet(nameof(GetEmployees))]
         public async Task<IActionResult> GetEmployees()
         {
+            // By default Query Filters applied
             return Ok(await _employeeContext.Authors.ToListAsync());
+            // If we want to ignore the Query Filters
+           // return Ok(await _employeeContext.Authors.IgnoreQueryFilters().ToListAsync());
         }
     }
 }
